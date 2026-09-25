@@ -1,15 +1,13 @@
 type Props = {
   title: string
-  subtitle?: string
 }
 
-function ChatHeader({ title, subtitle }: Props) {
+function ChatHeader({ title }: Props) {
   return (
     <div className="chat-header">
-      <div className="avatar">—</div>
+      <div className="avatar">M</div>
       <div>
         <h2 className="chat-title">{title}</h2>
-        <div className="chat-status">{subtitle}</div>
       </div>
     </div>
   )

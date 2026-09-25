@@ -6,26 +6,26 @@ import MessageComposer from '@/components/MessageComposer'
 import { useMessenger } from '@/hooks/useMessenger'
 
 function App() {
-  const { messages, error, sendMessage } = useMessenger()
+    const { messages, error, sendMessage } = useMessenger()
 
-  return (
-    <div className="app-root">
-      <aside className="sidebar">
-        <h1 className="brand">MAX Messenger</h1>
-        <ConversationList />
-      </aside>
+    return (
+        <div className="app-root">
+            <aside className="sidebar">
+                <h1 className="brand">MAX</h1>
+                <ConversationList />
+            </aside>
 
-      <main className="chat-area">
-        <ChatHeader title="Текущий диалог" />
+            <main className="chat-area">
+                <ChatHeader title="MAX" />
 
-        {error && <div role="alert">{error}</div>}
+                {error && <div role="alert">{error}</div>}
 
-        <MessageList messages={messages} />
+                <MessageList messages={messages} />
 
-        <MessageComposer onSend={sendMessage} />
-      </main>
-    </div>
-  )
+                <MessageComposer onSend={sendMessage} />
+            </main>
+        </div>
+    )
 }
 
 export default App

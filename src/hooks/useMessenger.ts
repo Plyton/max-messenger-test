@@ -30,10 +30,13 @@ export function useMessenger() {
       const { body } = notification
       const messageId = body.idMessage
       const text = body.messageData?.textMessageData?.textMessage?.trim()
+      const isTargetChat =
+        greenApiConfig.chatId !== undefined && body.senderData?.chatId === greenApiConfig.chatId
 
       if (
         body.typeWebhook !== 'incomingMessageReceived' ||
         body.messageData?.typeMessage !== 'textMessage' ||
+        !isTargetChat ||
         !messageId ||
         !text
       ) {
