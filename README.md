@@ -1,75 +1,74 @@
-# React + TypeScript + Vite
+# MAX Messenger Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+MAX Messenger Test — небольшое React-приложение для обмена текстовыми сообщениями в стиле MAX.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Проект использует React, TypeScript и Vite. Исходящие сообщения отправляются через GREEN-API, а входящие сообщения получаются через GREEN-API HTTP API. Для ожидания новых сообщений используется механизм **long polling**.
 
-## React Compiler
+## Требования
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js
+- npm
+- Настроенный GREEN-API instance
 
-## Expanding the ESLint configuration
+## Локальный запуск
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone <repository-url>
+cd max-messenger-test
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Создайте файл `.env` на основе `.env.example` и заполните его значениями своего GREEN-API instance:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```env
+VITE_GREEN_API_BASE_URL=
+VITE_GREEN_API_ID_INSTANCE=
+VITE_GREEN_API_TOKEN_INSTANCE=
+VITE_GREEN_API_CHAT_ID=
 ```
+
+Запустите dev-сервер:
+
+```bash
+npm run dev
+```
+
+## Проверка проекта
+
+Проверка кода и production-сборки выполняется командами:
+
+```bash
+npm run lint
+npm run build
+```
+
+Команда `lint` проверяет исходный код с помощью ESLint. Команда `build` проверяет TypeScript и собирает production-версию приложения через Vite.
+
+## Как работает обмен сообщениями
+
+- Исходящие сообщения отправляются через GREEN-API методом `SendMessage`.
+- Входящие сообщения получаются через GREEN-API методом `ReceiveNotification`.
+- Для ожидания новых сообщений используется **long polling**.
+- После получения notification приложение проверяет его тип и обрабатывает только входящее текстовое сообщение.
+- Обработанное notification удаляется через `DeleteNotification`.
+- Входящие сообщения появляются в интерфейсе без перезагрузки страницы.
+- Polling выполняется последовательно и продолжается, пока приложение открыто.
+- При ошибке polling выполняется повторная попытка с небольшой задержкой.
+- Для остановки polling при размонтировании React-компонента используется `AbortController`.
+
+## Безопасность
+
+- `.env` добавлен в `.gitignore`.
+- Реальные GREEN-API credentials нельзя публиковать в GitHub.
+- `.env.example` содержит только имена переменных без секретных значений.
+- Токен GREEN-API не должен находиться в исходном коде или README.
+
+## Технологии
+
+- React
+- TypeScript
+- Vite
+- GREEN-API
+- CSS
