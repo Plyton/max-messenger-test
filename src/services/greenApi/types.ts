@@ -1,44 +1,70 @@
-export type SendMessageRequest = {
-  chatId: string
-  message: string
+export interface SendMessageRequest {
+  chatId: string;
+  message: string;
 }
 
-export type SendMessageResponse = {
-  idMessage: string
+export interface SendMessageResponse {
+  idMessage: string;
 }
 
-export type ReceiveNotificationMessageData = {
-  typeMessage?: string
+export interface GreenApiConfig {
+  baseUrl: string;
+  idInstance: string;
+  apiTokenInstance: string;
+}
+
+export interface GreenApiCredentials {
+  idInstance: string;
+  apiTokenInstance: string;
+}
+
+export interface CheckAccountRequest {
+  phoneNumber: number;
+  force?: boolean;
+}
+
+export interface CheckAccountResponse {
+  exist: boolean;
+  chatId: string;
+  fromCache: boolean;
+}
+
+export interface GetStateInstanceResponse {
+  stateInstance: string;
+}
+
+export interface ReceiveNotificationMessageData {
+  typeMessage?: string;
   textMessageData?: {
-    textMessage?: string
-  }
+    textMessage?: string;
+  };
 }
 
-export type ReceiveNotificationBody = {
-  typeWebhook?: string
+export interface ReceiveNotificationBody {
+  typeWebhook?: string;
   instanceData?: {
-    idInstance?: number
-    wid?: string
-    typeInstance?: string
-  }
-  timestamp?: number
-  idMessage?: string
+    idInstance?: number;
+    wid?: string;
+    typeInstance?: string;
+  };
+  timestamp?: number;
+  idMessage?: string;
   senderData?: {
-    chatId?: string
-    sender?: string
-    senderName?: string
-    senderContactName?: string
-  }
-  messageData?: ReceiveNotificationMessageData
+    chatId?: string;
+    sender?: string;
+    senderName?: string;
+    senderContactName?: string;
+  };
+  messageData?: ReceiveNotificationMessageData;
 }
 
-export type ReceiveNotification = {
-  receiptId: number
-  body: ReceiveNotificationBody
+export interface ReceiveNotification {
+  receiptId: number;
+  body: ReceiveNotificationBody;
 }
 
-export type ReceiveNotificationResponse = ReceiveNotification | null
+export type ReceiveNotificationResponse = ReceiveNotification | null;
 
-export type DeleteNotificationResponse = {
-  result: boolean
+export interface DeleteNotificationResponse {
+  result: boolean;
 }
