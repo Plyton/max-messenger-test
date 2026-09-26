@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import type { KeyboardEventHandler } from 'react'
+import styles from './MessageComposer.module.scss'
 
 type Props = {
   onSend: (text: string) => void | Promise<void>
@@ -26,8 +27,9 @@ function MessageComposer({ onSend }: Props) {
   }
 
   return (
-    <div className="composer">
+    <div className={styles.composer}>
       <textarea
+        className={styles.input}
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={onKeyDown}
@@ -35,7 +37,7 @@ function MessageComposer({ onSend }: Props) {
         aria-label="Текст сообщения"
       />
       <button
-        className="send-btn"
+        className={styles.sendButton}
         onClick={handleSend}
         disabled={!text.trim()}
         aria-label="Отправить сообщение"

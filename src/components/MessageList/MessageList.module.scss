@@ -1,0 +1,9 @@
+.messageList {
+  flex: 1 1 auto;
+  padding: 16px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.02));
+}

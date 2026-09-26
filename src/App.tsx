@@ -1,24 +1,26 @@
-import './App.css'
-import ConversationList from '@/components/ConversationList'
-import ChatHeader from '@/components/ChatHeader'
-import MessageList from '@/components/MessageList'
-import MessageComposer from '@/components/MessageComposer'
+import styles from './App.module.scss'
+import ConversationList from '@/components/ConversationList/ConversationList'
+import ChatHeader from '@/components/ChatHeader/ChatHeader'
+import MessageList from '@/components/MessageList/MessageList'
+import MessageComposer from '@/components/MessageComposer/MessageComposer'
 import { useMessenger } from '@/hooks/useMessenger'
 
 function App() {
     const { messages, error, sendMessage } = useMessenger()
 
     return (
-        <div className="app-root">
-            <aside className="sidebar">
-                <h1 className="brand">MAX</h1>
+        <div className={styles.app}>
+            <aside className={styles.sidebar}>
+                <h1 className={styles.brand}>MAX</h1>
                 <ConversationList />
             </aside>
 
-            <main className="chat-area">
+            <main className={styles.chatArea}>
                 <ChatHeader title="MAX" />
 
-                {error && <div role="alert">{error}</div>}
+                {error && <div className={styles.error} role="alert">
+                    {error}
+                </div>}
 
                 <MessageList messages={messages} />
 
