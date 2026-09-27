@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import type * as React from 'react';
 import { useContext } from 'react';
 import { greenApiBaseUrl } from '@/shared/config/env';
@@ -21,6 +21,14 @@ function CredentialsForm() {
   const [apiTokenInstance, setApiTokenInstance] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const handleIdInstanceChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setIdInstance(event.target.value.replace(/\D/g, ''));
+  }, []);
+
+  const handleApiTokenInstanceChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setApiTokenInstance(event.target.value);
+  }, []);
 
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -68,9 +76,7 @@ function CredentialsForm() {
           className={styles.input}
           inputMode="numeric"
           name="idInstance"
-          onChange={(event) =>
-            setIdInstance(event.target.value.replace(/\D/g, ''))
-          }
+          onChange={handleIdInstanceChange}
           placeholder="Введите ID подключения"
           required
           value={idInstance}
@@ -83,7 +89,7 @@ function CredentialsForm() {
           autoComplete="off"
           className={styles.input}
           name="apiTokenInstance"
-          onChange={(event) => setApiTokenInstance(event.target.value)}
+          onChange={handleApiTokenInstanceChange}
           placeholder="Введите токен"
           required
           type="password"

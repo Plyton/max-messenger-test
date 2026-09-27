@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { GreenContext, GreenProvider } from '@/shared/context/GreenContext';
-import { ChatSessionProvider } from '@/shared/context/ChatSessionProvider';
+import { SessionProvider } from '@/shared/context/SessionProvider';
 import AuthPage from '@/pages/AuthPage/AuthPage';
 import ChatPage from '@/pages/ChatPage/ChatPage';
 
@@ -35,9 +35,9 @@ function RouterContent() {
         path="/"
         element={
           credentials ? (
-            <ChatSessionProvider onLogout={handleLogout}>
+            <SessionProvider onLogout={handleLogout}>
               <ChatPage />
-            </ChatSessionProvider>
+            </SessionProvider>
           ) : (
             <Navigate to="/auth" replace />
           )

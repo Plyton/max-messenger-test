@@ -6,13 +6,13 @@ import ChatSidebar from '@/modules/chat/components/ChatSidebar/ChatSidebar';
 import EmptyChat from '@/modules/chat/components/EmptyChat/EmptyChat';
 import MessageComposer from '@/modules/chat/components/MessageComposer/MessageComposer';
 import MessageList from '@/modules/chat/components/MessageList/MessageList';
-import { useChatSessionContext } from '@/shared/context/useChatSessionContext';
+import { useSessionContext } from '@/shared/context/useSessionContext';
 import { useMessengerContext } from '@/modules/chat/context/useMessengerContext';
 import styles from './Chat.module.scss';
 
 function Chat() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { onLogout } = useChatSessionContext();
+  const { onLogout } = useSessionContext();
   const { currentChat, isSending, messages, sendMessage } = useMessengerContext();
 
   return (
