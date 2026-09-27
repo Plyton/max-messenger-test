@@ -1,5 +1,6 @@
 .emptyState {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,14 +9,17 @@
   text-align: center;
 
   h2 {
-    margin: 22px 0 8px;
+    margin: 20px 0 8px;
     color: var(--text-h);
     font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   p {
     max-width: 310px;
     margin: 0;
+    color: #697780;
     font-size: 14px;
     line-height: 1.6;
   }
@@ -23,12 +27,14 @@
 
 .icon {
   display: grid;
-  width: 58px;
-  height: 58px;
+  width: 62px;
+  height: 62px;
   place-items: center;
-  border-radius: 20px;
-  background: var(--accent-bg);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background: rgba(242, 250, 255, 0.82);
+  box-shadow: 0 8px 22px rgba(45, 115, 165, 0.12);
   color: var(--accent);
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 750;
 }

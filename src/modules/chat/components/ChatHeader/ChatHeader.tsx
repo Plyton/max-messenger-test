@@ -25,7 +25,8 @@ function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
         type="button"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" />
+          {' '}
+          <path d="M19 12H7M11 6l-6 6 6 6" />{' '}
         </svg>
       </BaseButton>
       <div className={styles.avatar}>M</div>

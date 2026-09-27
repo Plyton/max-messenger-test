@@ -1,25 +1,45 @@
 .composer {
-  padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
-  border-top: 1px solid var(--border);
   display: flex;
-  gap: 8px;
   align-items: center;
+  gap: 8px;
+  margin: 10px 16px calc(16px + env(safe-area-inset-bottom));
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+  background: rgba(242, 250, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(40, 100, 140, 0.1);
+  backdrop-filter: blur(12px);
 }
 
 .input {
   flex: 1 1 auto;
+  min-width: 0;
   min-height: 44px;
   max-height: 120px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: rgba(190, 216, 232, 0.42);
+  color: var(--text-h);
   resize: none;
   font: inherit;
+  line-height: 1.35;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+
+  &::placeholder {
+    color: #7c8992;
+    opacity: 1;
+  }
 
   &:focus {
-    border-color: var(--accent);
+    border-color: rgba(60, 150, 230, 0.4);
     outline: none;
-    box-shadow: 0 0 0 3px var(--accent-bg);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 0 0 3px rgba(80, 170, 235, 0.1);
   }
 
   &:disabled {
@@ -28,28 +48,30 @@
 }
 
 .sendButton {
-  background: var(--accent);
-  color: white;
-  border: none;
   width: 44px;
   height: 44px;
   padding: 0;
-  border-radius: 50%;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: white;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 44px;
   transition:
-    transform 0.15s,
-    opacity 0.15s;
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
 
   &:hover:not(:disabled) {
-    transform: translateY(-1px);
+    background: var(--accent-hover);
+    box-shadow: 0 4px 12px rgba(60, 150, 230, 0.18);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--accent-border);
+    outline: 2px solid rgba(60, 150, 230, 0.55);
     outline-offset: 2px;
   }
 
@@ -62,5 +84,11 @@
     width: 22px;
     height: 22px;
     fill: currentColor;
+  }
+}
+
+@media (max-width: 767px) {
+  .composer {
+    margin: 8px 10px calc(10px + env(safe-area-inset-bottom));
   }
 }

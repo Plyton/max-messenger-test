@@ -1,10 +1,11 @@
 .statusError {
   margin: 10px 14px 0;
-  padding: 9px 10px;
-  border: 1px solid var(--accent-border);
-  border-radius: 10px;
-  background: var(--accent-bg);
-  color: var(--text-h);
-  font-size: 12px;
+  padding: 10px 13px;
+  border: 1px solid rgba(220, 100, 100, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 240, 240, 0.94);
+  box-shadow: 0 3px 10px rgba(130, 65, 65, 0.06);
+  color: #7d3030;
+  font-size: 13px;
   line-height: 1.45;
 }

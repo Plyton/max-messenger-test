@@ -22,13 +22,11 @@ function CredentialsForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleIdInstanceChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleIdInstanceChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setIdInstance(event.target.value.replace(/\D/g, ''));
   }, []);
 
-  const handleApiTokenInstanceChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleApiTokenInstanceChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setApiTokenInstance(event.target.value);
   }, []);
 

@@ -3,6 +3,7 @@ import ConversationList from '@/modules/chat/components/ConversationList/Convers
 import NewChatForm from '@/modules/chat/components/NewChatForm/NewChatForm';
 import { useMessengerContext } from '@/modules/chat/context/useMessengerContext';
 import BaseButton from '@/shared/ui/BaseButton/BaseButton';
+import MaxLogo from '@/shared/ui/MaxLogo/MaxLogo';
 import styles from './ChatSidebar.module.scss';
 
 type Props = {
@@ -31,6 +32,9 @@ function ChatSidebar({ isOpen, onClose }: Props) {
     >
       <div className={styles.sidebarHeading}>
         <div className={styles.brandGroup}>
+          <span className={styles.brandIcon} aria-hidden="true">
+            <MaxLogo />
+          </span>
           <h1 className={styles.brand}>MAX</h1>
           <span className={styles.onlineDot} aria-label="Подключено" title="Подключено" />
         </div>
