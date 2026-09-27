@@ -1,5 +1,5 @@
 .composer {
-  padding: 12px;
+  padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--border);
   display: flex;
   gap: 8px;
