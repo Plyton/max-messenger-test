@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { useMessenger } from '@/modules/chat/hooks/useMessenger';
-import type { GreenApiCredentials } from '@/shared/api/greenApi/types';
+import type { GreenApiCredentials } from '@/shared/api';
+import { useMessenger } from '../hooks/useMessenger';
 import { MessengerContext } from './MessengerContext';
 
 type Props = {

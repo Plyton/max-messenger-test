@@ -1,7 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import BaseButton from '@/shared/ui/BaseButton/BaseButton';
-import BaseModal from '@/shared/ui/BaseModal/BaseModal';
-import type { BaseModalRef } from '@/shared/ui/BaseModal/BaseModal';
+import { BaseButton, BaseModal } from '@/shared/ui';
+import type { BaseModalRef } from '@/shared/ui';
 import styles from './LogoutConfirm.module.scss';
 
 export type LogoutConfirmRef = {

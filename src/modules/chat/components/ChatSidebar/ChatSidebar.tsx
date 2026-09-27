@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import ConversationList from '@/modules/chat/components/ConversationList/ConversationList';
-import NewChatForm from '@/modules/chat/components/NewChatForm/NewChatForm';
-import { useMessengerContext } from '@/modules/chat/context/useMessengerContext';
-import BaseButton from '@/shared/ui/BaseButton/BaseButton';
-import MaxLogo from '@/shared/ui/MaxLogo/MaxLogo';
+import { BaseButton, MaxLogo } from '@/shared/ui';
+import ConversationList from '../ConversationList/ConversationList';
+import NewChatForm from '../NewChatForm/NewChatForm';
+import { useMessengerContext } from '../../context/useMessengerContext';
 import styles from './ChatSidebar.module.scss';
 
 type Props = {

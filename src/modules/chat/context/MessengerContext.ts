@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { useMessenger } from '@/modules/chat/hooks/useMessenger';
+import { useMessenger } from '../hooks/useMessenger';
 
 type MessengerContextValue = ReturnType<typeof useMessenger>;
 

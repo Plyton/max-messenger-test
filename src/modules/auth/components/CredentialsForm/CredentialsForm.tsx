@@ -2,11 +2,10 @@ import { useCallback, useState } from 'react';
 import type * as React from 'react';
 import { useContext } from 'react';
 import { greenApiBaseUrl } from '@/shared/config/env';
-import { GreenContext } from '@/shared/context/GreenContext';
-import { getStateInstance } from '@/shared/api/greenApi/greenApi';
-import type { GreenApiConfig } from '@/shared/api/greenApi/types';
-import BaseButton from '@/shared/ui/BaseButton/BaseButton';
-import BaseInput from '@/shared/ui/BaseInput/BaseInput';
+import { GreenContext } from '@/shared/context';
+import { greenApi } from '@/shared/api';
+import type { GreenApiConfig } from '@/shared/api';
+import { BaseButton, BaseInput } from '@/shared/ui';
 import styles from './CredentialsForm.module.scss';
 
 function CredentialsForm() {
@@ -51,7 +50,7 @@ function CredentialsForm() {
     const config: GreenApiConfig = { baseUrl: greenApiBaseUrl, ...credentials };
 
     try {
-      const response = await getStateInstance(config);
+      const response = await greenApi.getStateInstance(config);
 
       if (response.stateInstance !== 'authorized') {
         setError(

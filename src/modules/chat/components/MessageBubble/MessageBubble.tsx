@@ -1,4 +1,4 @@
-import type { ChatMessage } from '@/modules/chat/types';
+import type { ChatMessage } from '../../types';
 import styles from './MessageBubble.module.scss';
 
 type Props = {

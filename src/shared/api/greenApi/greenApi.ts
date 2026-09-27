@@ -133,3 +133,11 @@ export async function deleteNotification(
     { signal, errorMethod: 'DeleteNotification' },
   );
 }
+
+export const greenApi = {
+  getStateInstance,
+  checkAccount,
+  sendMessage,
+  receiveNotification,
+  deleteNotification,
+};

@@ -1,4 +1,4 @@
-import { useMessengerContext } from '@/modules/chat/context/useMessengerContext';
+import { useMessengerContext } from '../../context/useMessengerContext';
 import styles from './ChatErrors.module.scss';
 
 function ChatErrors() {

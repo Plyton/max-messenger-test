@@ -1,7 +1,7 @@
 import { useRef } from 'react';
-import BaseButton from '@/shared/ui/BaseButton/BaseButton';
-import LogoutConfirm from '@/modules/chat/components/LogoutConfirm/LogoutConfirm';
-import type { LogoutConfirmRef } from '@/modules/chat/components/LogoutConfirm/LogoutConfirm';
+import { BaseButton } from '@/shared/ui';
+import LogoutConfirm from '../LogoutConfirm/LogoutConfirm';
+import type { LogoutConfirmRef } from '../LogoutConfirm/LogoutConfirm';
 import styles from './ChatHeader.module.scss';
 
 type Props = {

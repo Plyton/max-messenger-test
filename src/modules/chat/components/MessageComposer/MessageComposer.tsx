@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import type { KeyboardEventHandler } from 'react';
-import BaseButton from '@/shared/ui/BaseButton/BaseButton';
+import { BaseButton } from '@/shared/ui';
 import styles from './MessageComposer.module.scss';
 
 type Props = {

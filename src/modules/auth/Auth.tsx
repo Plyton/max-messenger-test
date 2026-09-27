@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
 import { useContext } from 'react';
-import { GreenContext } from '@/shared/context/GreenContext';
-import MaxLogo from '@/shared/ui/MaxLogo/MaxLogo';
-import CredentialsForm from '@/modules/auth/components/CredentialsForm/CredentialsForm';
+import { GreenContext } from '@/shared/context';
+import { MaxLogo } from '@/shared/ui';
+import CredentialsForm from './components/CredentialsForm/CredentialsForm';
 import styles from './Auth.module.scss';
 
 function Auth() {

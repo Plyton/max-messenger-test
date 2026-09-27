@@ -1,9 +1,7 @@
 import { useContext } from 'react';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-import { GreenContext, GreenProvider } from '@/shared/context/GreenContext';
-import { SessionProvider } from '@/shared/context/SessionProvider';
-import AuthPage from '@/pages/AuthPage/AuthPage';
-import ChatPage from '@/pages/ChatPage/ChatPage';
+import { GreenContext, GreenProvider, SessionProvider } from '@/shared/context';
+import { AuthPage, ChatPage } from '@/pages';
 
 function AppRouter() {
   return (

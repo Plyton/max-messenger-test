@@ -1,7 +1,6 @@
 import { useContext } from 'react';
-import { GreenContext } from '@/shared/context/GreenContext';
-import { MessengerProvider } from '@/modules/chat/context/MessengerProvider';
-import Chat from '@/modules/chat/Chat';
+import { GreenContext } from '@/shared/context';
+import { Chat, MessengerProvider } from '@/modules';
 
 function ChatPage() {
   const context = useContext(GreenContext);

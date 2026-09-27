@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useEffect, useRef } from 'react';
-import type { ChatMessage } from '@/modules/chat/types';
-import MessageBubble from '@/modules/chat/components/MessageBubble/MessageBubble';
+import type { ChatMessage } from '../../types';
+import MessageBubble from '../MessageBubble/MessageBubble';
 import styles from './MessageList.module.scss';
 
 type Props = {

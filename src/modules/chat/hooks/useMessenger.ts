@@ -1,17 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { greenApiBaseUrl } from '@/shared/config/env';
-import {
-  checkAccount as checkGreenApiAccount,
-  deleteNotification,
-  receiveNotification,
-  sendMessage as sendGreenApiMessage,
-} from '@/shared/api/greenApi/greenApi';
-import type {
-  GreenApiConfig,
-  GreenApiCredentials,
-  ReceiveNotification,
-} from '@/shared/api/greenApi/types';
-import type { ChatMessage, CurrentChat } from '@/modules/chat/types';
+import { greenApi } from '@/shared/api';
+import type { GreenApiConfig, GreenApiCredentials, ReceiveNotification } from '@/shared/api';
+import type { ChatMessage, CurrentChat } from '../types';
 
 type Props = {
   credentials: GreenApiCredentials | null;
@@ -87,7 +78,7 @@ export function useMessenger({ credentials }: Props) {
     const poll = async () => {
       while (!controller.signal.aborted) {
         try {
-          const notification = await receiveNotification(pollingConfig, controller.signal);
+          const notification = await greenApi.receiveNotification(pollingConfig, controller.signal);
 
           if (controller.signal.aborted) return;
 
@@ -101,7 +92,11 @@ export function useMessenger({ credentials }: Props) {
             setMessages((currentMessages) => [...currentMessages, message]);
           }
 
-          await deleteNotification(pollingConfig, notification.receiptId, controller.signal);
+          await greenApi.deleteNotification(
+            pollingConfig,
+            notification.receiptId,
+            controller.signal,
+          );
           setReceiveError(null);
         } catch {
           if (controller.signal.aborted) return;
@@ -139,7 +134,7 @@ export function useMessenger({ credentials }: Props) {
       }
 
       try {
-        const response = await checkGreenApiAccount(config, phoneNumberValue);
+        const response = await greenApi.checkAccount(config, phoneNumberValue);
 
         if (!response.exist) {
           setAccountError('Пользователь с этим номером не найден в MAX.');
@@ -176,7 +171,7 @@ export function useMessenger({ credentials }: Props) {
       setIsSending(true);
 
       try {
-        const response = await sendGreenApiMessage(config, currentChat.chatId, trimmedText);
+        const response = await greenApi.sendMessage(config, currentChat.chatId, trimmedText);
         const message: ChatMessage = {
           id: response.idMessage,
           text: trimmedText,

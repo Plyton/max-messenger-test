@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import type * as React from 'react';
 import { IMaskInput } from 'react-imask';
-import BaseButton from '@/shared/ui/BaseButton/BaseButton';
+import { BaseButton } from '@/shared/ui';
 import styles from './NewChatForm.module.scss';
 
 type Props = {

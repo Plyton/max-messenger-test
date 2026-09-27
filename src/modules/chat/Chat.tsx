@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import BaseButton from '@/shared/ui/BaseButton/BaseButton';
-import ChatHeader from '@/modules/chat/components/ChatHeader/ChatHeader';
-import ChatErrors from '@/modules/chat/components/ChatErrors/ChatErrors';
-import ChatSidebar from '@/modules/chat/components/ChatSidebar/ChatSidebar';
-import EmptyChat from '@/modules/chat/components/EmptyChat/EmptyChat';
-import MessageComposer from '@/modules/chat/components/MessageComposer/MessageComposer';
-import MessageList from '@/modules/chat/components/MessageList/MessageList';
-import { useSessionContext } from '@/shared/context/useSessionContext';
-import { useMessengerContext } from '@/modules/chat/context/useMessengerContext';
+import { useSessionContext } from '@/shared/context';
+import { BaseButton } from '@/shared/ui';
+import ChatErrors from './components/ChatErrors/ChatErrors';
+import ChatHeader from './components/ChatHeader/ChatHeader';
+import ChatSidebar from './components/ChatSidebar/ChatSidebar';
+import EmptyChat from './components/EmptyChat/EmptyChat';
+import MessageComposer from './components/MessageComposer/MessageComposer';
+import MessageList from './components/MessageList/MessageList';
+import { useMessengerContext } from './context/useMessengerContext';
 import styles from './Chat.module.scss';
 
 function Chat() {
