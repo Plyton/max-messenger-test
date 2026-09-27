@@ -8,7 +8,26 @@
   --accent-hover: #61a9ed;
   --accent-bg: rgba(112, 181, 244, 0.12);
   --accent-border: rgba(80, 160, 225, 0.35);
-  --shadow: 0 20px 50px rgba(45, 115, 165, 0.14), 0 4px 12px rgba(45, 115, 165, 0.08);
+  --accent-focus-border: rgba(60, 150, 230, 0.4);
+  --accent-focus-outline: rgba(60, 150, 230, 0.55);
+  --accent-focus-ring: rgba(80, 170, 235, 0.1);
+  --brand-gradient: linear-gradient(135deg, #438df4 8%, #815fe7 54%, #54c9ed 100%);
+  --text-brand: #111c27;
+  --text-muted: #7c8992;
+  --text-inverse: #fff;
+  --danger: #7d3030;
+  --danger-background: rgba(255, 240, 240, 0.94);
+  --danger-border: rgba(220, 100, 100, 0.18);
+  --control-text: #53616b;
+  --surface-border: rgba(255, 255, 255, 0.68);
+  --shadow-color-soft: rgba(45, 115, 165, 0.08);
+  --radius-compact: 12px;
+  --radius-small: 11px;
+  --radius-control: 14px;
+  --radius-item: 16px;
+  --radius-surface: 18px;
+  --radius-card: 22px;
+  --shadow: 0 20px 50px rgba(45, 115, 165, 0.14), 0 4px 12px var(--shadow-color-soft);
   --page-gradient: linear-gradient(135deg, #8fd7ff 0%, #a8e3ff 50%, #91d4ff 100%);
   --page-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='230' height='210' viewBox='0 0 230 210' fill='none' stroke='%232b91c8' stroke-opacity='.24' stroke-width='2'%3E%3Cpath d='m30 29 2.4 6.7L39 38l-6.6 2.3L30 47l-2.4-6.7L21 38l6.6-2.3L30 29Z'/%3E%3Ccircle cx='106' cy='36' r='12'/%3E%3Cellipse cx='106' cy='36' rx='20' ry='7' transform='rotate(-25 106 36)'/%3E%3Cpath d='M177 23a14 14 0 1 0 14 22 12 12 0 0 1-14-22Z'/%3E%3Cpath d='M46 112c0-8 7-14 15-14h12c8 0 15 6 15 14v4c0 8-7 14-15 14h-4l-9 8v-8c-8-1-14-7-14-14v-4Z'/%3E%3Ccircle cx='59' cy='114' r='1' fill='%232b91c8'/%3E%3Ccircle cx='68' cy='114' r='1' fill='%232b91c8'/%3E%3Ccircle cx='77' cy='114' r='1' fill='%232b91c8'/%3E%3Cpath d='m156 104 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z'/%3E%3Ccircle cx='202' cy='151' r='11'/%3E%3Cpath d='M190 151h24M202 139v24'/%3E%3Cpath d='M31 174c8-8 18-8 26 0M36 180c5-5 11-5 16 0'/%3E%3Ccircle cx='44' cy='186' r='1.5' fill='%232b91c8'/%3E%3Cpath d='m120 157 2.4 6.7L129 166l-6.6 2.3L120 175l-2.4-6.7L111 166l6.6-2.3 2.4-6.7Z'/%3E%3C/svg%3E");
 
@@ -31,6 +50,11 @@
 body {
   margin: 0;
   font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 18px;
+  letter-spacing: 0.01em;
   background: var(--page-gradient);
   color: var(--text);
 }

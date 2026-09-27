@@ -1,3 +1,5 @@
+@use '@/shared/styles' as styles;
+
 .composer {
   display: flex;
   align-items: center;
@@ -5,7 +7,7 @@
   margin: 10px 16px calc(16px + env(safe-area-inset-bottom));
   padding: 8px;
   border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 18px;
+  border-radius: var(--radius-surface);
   background: rgba(242, 250, 255, 0.92);
   box-shadow: 0 8px 24px rgba(40, 100, 140, 0.1);
   backdrop-filter: blur(12px);
@@ -19,27 +21,24 @@
   box-sizing: border-box;
   padding: 11px 12px;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-compact);
   background: rgba(190, 216, 232, 0.42);
   color: var(--text-h);
   resize: none;
   font: inherit;
   line-height: 1.35;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease,
-    background-color 0.15s ease;
+  @include styles.input-transition;
 
   &::placeholder {
-    color: #7c8992;
+    color: var(--text-muted);
     opacity: 1;
   }
 
   &:focus {
-    border-color: rgba(60, 150, 230, 0.4);
+    border-color: var(--accent-focus-border);
     outline: none;
     background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 0 0 3px rgba(80, 170, 235, 0.1);
+    box-shadow: 0 0 0 3px var(--accent-focus-ring);
   }
 
   &:disabled {
@@ -52,28 +51,20 @@
   height: 44px;
   padding: 0;
   border: none;
-  border-radius: 14px;
+  border-radius: var(--radius-control);
   background: var(--accent);
-  color: white;
+  color: var(--text-inverse);
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @include styles.flex-center(inline-flex);
   flex: 0 0 44px;
-  transition:
-    background-color 0.15s ease,
-    box-shadow 0.15s ease,
-    opacity 0.15s ease;
+  @include styles.button-transition;
 
   &:hover:not(:disabled) {
     background: var(--accent-hover);
     box-shadow: 0 4px 12px rgba(60, 150, 230, 0.18);
   }
 
-  &:focus-visible {
-    outline: 2px solid rgba(60, 150, 230, 0.55);
-    outline-offset: 2px;
-  }
+  @include styles.focus-visible(var(--accent-focus-outline));
 
   &:disabled {
     opacity: 0.6;
@@ -87,7 +78,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@include styles.mobile {
   .composer {
     margin: 8px 10px calc(10px + env(safe-area-inset-bottom));
   }

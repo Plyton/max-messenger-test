@@ -1,0 +1,63 @@
+@mixin flex-center($display: flex) {
+  display: $display;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin input-transition {
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+@mixin button-transition {
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin focus-visible($color, $width: 2px, $offset: 2px) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: $offset;
+  }
+}
+
+@mixin doodle-overlay($opacity: 1) {
+  &::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background-image: var(--page-pattern);
+    background-repeat: repeat;
+    background-size: 230px 210px;
+    content: '';
+    opacity: $opacity;
+    pointer-events: none;
+  }
+}

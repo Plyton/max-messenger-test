@@ -1,10 +1,10 @@
+@use '@/shared/styles' as styles;
+
 .emptyState {
   flex: 1;
   min-height: 0;
-  display: flex;
+  @include styles.flex-center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 24px;
   text-align: center;
 
@@ -19,7 +19,7 @@
   p {
     max-width: 310px;
     margin: 0;
-    color: #697780;
+    color: var(--text);
     font-size: 14px;
     line-height: 1.6;
   }
@@ -31,7 +31,7 @@
   height: 62px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 22px;
+  border-radius: var(--radius-card);
   background: rgba(242, 250, 255, 0.82);
   box-shadow: 0 8px 22px rgba(45, 115, 165, 0.12);
   color: var(--accent);

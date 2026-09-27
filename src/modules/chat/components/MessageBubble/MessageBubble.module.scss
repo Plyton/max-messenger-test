@@ -1,3 +1,5 @@
+@use '@/shared/styles' as styles;
+
 .row {
   display: flex;
   min-width: 0;
@@ -15,7 +17,7 @@
   max-width: 68%;
   min-width: 0;
   padding: 10px 13px;
-  border-radius: 18px;
+  border-radius: var(--radius-surface);
   font-size: 15px;
   line-height: 1.4;
   overflow-wrap: anywhere;
@@ -24,13 +26,13 @@
   &--incoming {
     border-bottom-left-radius: 6px;
     background: rgba(248, 252, 255, 0.96);
-    color: #111820;
+    color: var(--text-h);
   }
 
   &--outgoing {
     border-bottom-right-radius: 6px;
-    background: #70b5f4;
-    color: #fff;
+    background: var(--accent);
+    color: var(--text-inverse);
     box-shadow: 0 2px 8px rgba(50, 130, 190, 0.15);
   }
 }
@@ -47,7 +49,7 @@
   color: rgba(255, 255, 255, 0.78);
 }
 
-@media (max-width: 767px) {
+@include styles.mobile {
   .bubble {
     max-width: 86%;
     font-size: 14px;

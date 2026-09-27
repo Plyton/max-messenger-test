@@ -1,6 +1,7 @@
+@use '@/shared/styles' as styles;
+
 .content {
-  display: flex;
-  flex-direction: column;
+  @include styles.flex-column;
   gap: 12px;
 }
 
@@ -30,21 +31,18 @@
   min-height: 42px;
   padding: 0 16px;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-compact);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 
-  &:focus-visible {
-    outline: 2px solid rgba(60, 150, 230, 0.55);
-    outline-offset: 2px;
-  }
+  @include styles.focus-visible(var(--accent-focus-outline));
 }
 
 .cancel {
   border-color: rgba(100, 140, 165, 0.18);
   background: rgba(255, 255, 255, 0.65);
-  color: #53616b;
+  color: var(--control-text);
 
   &:hover {
     background: rgba(112, 181, 244, 0.1);
@@ -53,7 +51,7 @@
 
 .confirm {
   background: var(--accent);
-  color: #fff;
+  color: var(--text-inverse);
 
   &:hover {
     background: var(--accent-hover);

@@ -1,17 +1,18 @@
+@use '@/shared/styles' as styles;
+
 .messageList {
   flex: 1 1 auto;
   min-height: 0;
   padding: 24px;
   overflow: auto;
-  display: flex;
-  flex-direction: column;
+  @include styles.flex-column;
   gap: 7px;
   background: rgba(109, 199, 247, 0.025);
   scrollbar-color: rgba(45, 115, 165, 0.32) transparent;
   scrollbar-width: thin;
 }
 
-@media (max-width: 767px) {
+@include styles.mobile {
   .messageList {
     padding: 16px 12px;
   }

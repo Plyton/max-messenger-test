@@ -1,15 +1,6 @@
-.page {
-  --text: #697780;
-  --text-h: #101820;
-  --bg: rgba(242, 250, 255, 0.96);
-  --border: rgba(255, 255, 255, 0.68);
-  --accent: #70b5f4;
-  --accent-secondary: #6bd3ff;
-  --accent-bg: rgba(112, 181, 244, 0.12);
-  --accent-border: rgba(80, 160, 225, 0.35);
-  --shadow: 0 20px 50px rgba(45, 115, 165, 0.18), 0 4px 12px rgba(45, 115, 165, 0.08);
-  --sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+@use '@/shared/styles' as styles;
 
+.page {
   position: relative;
   isolation: isolate;
   min-height: 100dvh;
@@ -20,38 +11,28 @@
   padding: 32px 20px;
   background: var(--page-gradient);
   color: var(--text);
-  font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &::before {
-    position: fixed;
-    z-index: -1;
-    inset: 0;
-    background-image: var(--page-pattern);
-    background-repeat: repeat;
-    background-size: 230px 210px;
-    content: '';
-    pointer-events: none;
-  }
+  @include styles.doodle-overlay;
 }
 
 .card {
   width: min(100%, 520px);
   box-sizing: border-box;
   padding: 42px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--surface-border);
   border-radius: 28px;
   background: var(--bg);
-  box-shadow: var(--shadow);
+  box-shadow:
+    0 20px 50px rgba(45, 115, 165, 0.18),
+    0 4px 12px var(--shadow-color-soft);
   backdrop-filter: blur(10px);
   animation: appear 0.32s ease-out both;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include styles.flex-center;
   gap: 11px;
   margin-bottom: 28px;
 }
@@ -63,7 +44,7 @@
   flex: 0 0 auto;
   place-items: center;
   border-radius: 15px;
-  background: linear-gradient(135deg, #438df4 8%, #815fe7 54%, #54c9ed 100%);
+  background: var(--brand-gradient);
   box-shadow: 0 5px 12px rgba(78, 139, 222, 0.2);
 
   svg {
@@ -73,7 +54,7 @@
 }
 
 .wordmark {
-  color: #111c27;
+  color: var(--text-brand);
   font-size: 30px;
   font-weight: 750;
   letter-spacing: -0.055em;
@@ -92,7 +73,6 @@
 .title {
   margin: 0;
   color: var(--text-h);
-  font-family: var(--sans);
   font-size: clamp(26px, 6vw, 31px);
   font-weight: 700;
   letter-spacing: -0.035em;
@@ -119,14 +99,14 @@
   }
 }
 
-@media (max-width: 520px) {
+@include styles.small-mobile {
   .page {
     padding: 16px;
   }
 
   .card {
     padding: 28px 22px;
-    border-radius: 22px;
+    border-radius: var(--radius-card);
   }
 
   .wordmark {
@@ -134,7 +114,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@include styles.reduced-motion {
   .card {
     animation: none;
   }

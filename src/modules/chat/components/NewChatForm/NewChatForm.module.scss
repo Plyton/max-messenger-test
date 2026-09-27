@@ -1,10 +1,11 @@
+@use '@/shared/styles' as styles;
+
 .form {
-  display: flex;
-  flex-direction: column;
+  @include styles.flex-column;
   gap: 9px;
   padding: 15px 12px;
   border: 1px solid rgba(130, 184, 218, 0.16);
-  border-radius: 16px;
+  border-radius: var(--radius-item);
   background: rgba(112, 181, 244, 0.08);
 }
 
@@ -26,26 +27,23 @@
   height: 42px;
   padding: 0 10px;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-compact);
   background: rgba(190, 216, 232, 0.48);
   color: var(--text-h);
   font: inherit;
   font-size: 13px;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease,
-    background-color 0.15s ease;
+  @include styles.input-transition;
 
   &::placeholder {
-    color: #7c8992;
+    color: var(--text-muted);
     opacity: 1;
   }
 
   &:focus {
-    border-color: rgba(60, 150, 230, 0.4);
+    border-color: var(--accent-focus-border);
     outline: none;
     background: rgba(255, 255, 255, 0.82);
-    box-shadow: 0 0 0 3px rgba(80, 170, 235, 0.1);
+    box-shadow: 0 0 0 3px var(--accent-focus-ring);
   }
 }
 
@@ -54,28 +52,22 @@
   height: 42px;
   flex: 0 0 auto;
   border: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-compact);
   background: var(--accent);
-  color: white;
+  color: var(--text-inverse);
   font: inherit;
   font-size: 13px;
   font-weight: 650;
   line-height: 1;
   cursor: pointer;
-  transition:
-    background-color 0.15s ease,
-    box-shadow 0.15s ease,
-    opacity 0.15s ease;
+  @include styles.button-transition;
 
   &:hover:not(:disabled) {
     background: var(--accent-hover);
     box-shadow: 0 4px 12px rgba(60, 150, 230, 0.16);
   }
 
-  &:focus-visible {
-    outline: 3px solid var(--accent-border);
-    outline-offset: 2px;
-  }
+  @include styles.focus-visible(var(--accent-border), 3px, 2px);
 
   &:disabled {
     opacity: 0.55;
@@ -86,10 +78,10 @@
 .error {
   margin: 0;
   padding: 9px 10px;
-  border: 1px solid rgba(220, 100, 100, 0.18);
-  border-radius: 11px;
-  background: rgba(255, 240, 240, 0.94);
-  color: #7d3030;
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-small);
+  background: var(--danger-background);
+  color: var(--danger);
   font-size: 12px;
   line-height: 1.45;
 }
@@ -100,7 +92,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@include styles.small-mobile {
   .phoneRow {
     gap: 5px;
   }

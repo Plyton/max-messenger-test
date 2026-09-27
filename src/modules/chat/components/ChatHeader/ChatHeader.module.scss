@@ -1,10 +1,12 @@
+@use '@/shared/styles' as styles;
+
 .header {
   min-height: 68px;
   box-sizing: border-box;
   margin: 12px 12px 0;
   padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.68);
-  border-radius: 18px;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-surface);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -22,18 +24,15 @@
   height: 42px;
   flex: 0 0 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #438df4 8%, #815fe7 54%, #54c9ed 100%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  background: var(--brand-gradient);
+  @include styles.flex-center(inline-flex);
+  color: var(--text-inverse);
   font-weight: 700;
 }
 
 .title {
   max-width: min(55vw, 480px);
   overflow: hidden;
-  font-size: 16px;
   font-weight: 700;
   margin: 0;
   color: var(--text-h);
@@ -43,7 +42,7 @@
 
 .subtitle {
   margin: 3px 0 0;
-  color: #7c8992;
+  color: var(--text-muted);
   font-size: 12px;
 }
 
@@ -52,9 +51,9 @@
   margin-left: auto;
   padding: 0 12px;
   border: 1px solid rgba(100, 140, 165, 0.15);
-  border-radius: 12px;
+  border-radius: var(--radius-compact);
   background: rgba(255, 255, 255, 0.5);
-  color: #53616b;
+  color: var(--control-text);
   font: inherit;
   font-size: 13px;
   cursor: pointer;
@@ -67,13 +66,10 @@
     background: rgba(255, 255, 255, 0.8);
   }
 
-  &:focus-visible {
-    outline: 2px solid rgba(60, 150, 230, 0.55);
-    outline-offset: 2px;
-  }
+  @include styles.focus-visible(var(--accent-focus-outline));
 }
 
-@media (max-width: 767px) {
+@include styles.mobile {
   .header {
     min-height: 64px;
     margin: calc(8px + env(safe-area-inset-top)) 10px 0;
@@ -82,9 +78,7 @@
   }
 
   .menuButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    @include styles.flex-center(inline-flex);
     padding: 0;
     border: 0;
     background: transparent;
