@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { BaseButton } from '@/shared/ui';
+import { BaseButton, IconArrowLeft } from '@/shared/ui';
 import LogoutConfirm from '../LogoutConfirm/LogoutConfirm';
 import type { LogoutConfirmRef } from '../LogoutConfirm/LogoutConfirm';
 import styles from './ChatHeader.module.scss';
@@ -24,10 +24,7 @@ function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
         onClick={onOpenSidebar}
         type="button"
       >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          {' '}
-          <path d="M19 12H7M11 6l-6 6 6 6" />{' '}
-        </svg>
+        <IconArrowLeft />
       </BaseButton>
       <div className={styles.avatar}>M</div>
       <div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BaseButton, MaxLogo } from '@/shared/ui';
+import { BaseButton, IconClose, IconMaxLogo } from '@/shared/ui';
 import ConversationList from '../ConversationList/ConversationList';
 import NewChatForm from '../NewChatForm/NewChatForm';
 import { useMessengerContext } from '../../context/useMessengerContext';
@@ -32,7 +32,7 @@ function ChatSidebar({ isOpen, onClose }: Props) {
       <div className={styles.sidebarHeading}>
         <div className={styles.brandGroup}>
           <span className={styles.brandIcon} aria-hidden="true">
-            <MaxLogo />
+            <IconMaxLogo />
           </span>
           <h1 className={styles.brand}>MAX</h1>
           <span className={styles.onlineDot} aria-label="Подключено" title="Подключено" />
@@ -43,9 +43,7 @@ function ChatSidebar({ isOpen, onClose }: Props) {
           onClick={onClose}
           type="button"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="m6 6 12 12M18 6 6 18" />
-          </svg>
+          <IconClose />
         </BaseButton>
       </div>
       <NewChatForm

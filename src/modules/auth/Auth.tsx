@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { GreenContext } from '@/shared/context';
-import { MaxLogo } from '@/shared/ui';
+import { IconMaxLogo } from '@/shared/ui';
 import CredentialsForm from './components/CredentialsForm/CredentialsForm';
 import styles from './Auth.module.scss';
 
@@ -23,7 +23,7 @@ function Auth() {
       <section className={styles.card}>
         <div className={styles.brand} role="img" aria-label="MAX">
           <span className={styles.logo} aria-hidden="true">
-            <MaxLogo />
+            <IconMaxLogo />
           </span>
           <span className={styles.wordmark}>MAX</span>
         </div>

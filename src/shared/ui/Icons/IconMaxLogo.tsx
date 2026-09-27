@@ -1,4 +1,4 @@
-function MaxLogo() {
+function IconMaxLogo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none" aria-hidden="true">
       <path
@@ -11,4 +11,4 @@ function MaxLogo() {
   );
 }
 
-export default MaxLogo;
+export default IconMaxLogo;
