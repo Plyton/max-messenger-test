@@ -5,6 +5,8 @@ import { greenApiBaseUrl } from '@/shared/config/env';
 import { GreenContext } from '@/shared/context/GreenContext';
 import { getStateInstance } from '@/shared/api/greenApi/greenApi';
 import type { GreenApiConfig } from '@/shared/api/greenApi/types';
+import BaseButton from '@/shared/ui/BaseButton/BaseButton';
+import BaseInput from '@/shared/ui/BaseInput/BaseInput';
 import styles from './CredentialsForm.module.scss';
 
 function CredentialsForm() {
@@ -61,7 +63,7 @@ function CredentialsForm() {
     <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.field}>
         <span className={styles.label}>ID подключения</span>
-        <input
+        <BaseInput
           autoComplete="off"
           className={styles.input}
           inputMode="numeric"
@@ -77,7 +79,7 @@ function CredentialsForm() {
 
       <label className={styles.field}>
         <span className={styles.label}>Токен подключения</span>
-        <input
+        <BaseInput
           autoComplete="off"
           className={styles.input}
           name="apiTokenInstance"
@@ -95,9 +97,9 @@ function CredentialsForm() {
         </p>
       )}
 
-      <button className={styles.submit} disabled={isLoading} type="submit">
+      <BaseButton className={styles.submit} disabled={isLoading} type="submit">
         {isLoading ? 'Подключаем…' : 'Подключиться'}
-      </button>
+      </BaseButton>
     </form>
   );
 }

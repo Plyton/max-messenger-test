@@ -1,3 +1,4 @@
+import BaseButton from '@/shared/ui/BaseButton/BaseButton';
 import styles from './ConversationList.module.scss';
 
 type Props = {
@@ -12,7 +13,7 @@ function ConversationList({ phoneNumber, onSelect }: Props) {
 
   return (
     <div className={styles.list}>
-      <button
+      <BaseButton
         className={`${styles.item} ${styles['item--active']}`}
         onClick={onSelect}
         type="button"
@@ -21,7 +22,7 @@ function ConversationList({ phoneNumber, onSelect }: Props) {
         <div className={styles.meta}>
           <div className={styles.title}>{phoneNumber}</div>
         </div>
-      </button>
+      </BaseButton>
     </div>
   );
 }

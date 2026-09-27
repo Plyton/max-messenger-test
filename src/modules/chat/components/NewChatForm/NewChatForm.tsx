@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 import type * as React from 'react';
+import BaseButton from '@/shared/ui/BaseButton/BaseButton';
+import BaseInput from '@/shared/ui/BaseInput/BaseInput';
 import styles from './NewChatForm.module.scss';
 
 type Props = {
@@ -166,7 +168,7 @@ function NewChatForm({
         Новый чат
       </label>
       <div className={styles.phoneRow}>
-        <input
+        <BaseInput
           autoComplete="tel"
           className={styles.input}
           id="phone-number"
@@ -177,14 +179,14 @@ function NewChatForm({
           type="tel"
           value={phoneNumber}
         />
-        <button
+        <BaseButton
           aria-label="Найти"
           className={styles.submit}
           disabled={isCheckingAccount || !phoneNumber.trim()}
           type="submit"
         >
           {isCheckingAccount ? '…' : 'Найти'}
-        </button>
+        </BaseButton>
       </div>
       {error && (
         <p className={styles.error} role="alert">

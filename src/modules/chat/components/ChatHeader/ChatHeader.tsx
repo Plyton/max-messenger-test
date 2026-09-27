@@ -1,3 +1,4 @@
+import BaseButton from '@/shared/ui/BaseButton/BaseButton';
 import styles from './ChatHeader.module.scss';
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
   return (
     <div className={styles.header}>
-      <button
+      <BaseButton
         aria-controls="chat-sidebar"
         aria-expanded={sidebarIsOpen}
         aria-label="Открыть список чатов"
@@ -21,15 +22,15 @@ function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-      </button>
+      </BaseButton>
       <div className={styles.avatar}>M</div>
       <div>
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.subtitle}>MAX</p>
       </div>
-      <button className={styles.logout} onClick={onLogout} type="button">
+      <BaseButton className={styles.logout} onClick={onLogout} type="button">
         Выйти
-      </button>
+      </BaseButton>
     </div>
   );
 }

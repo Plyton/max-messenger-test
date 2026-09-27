@@ -1,5 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import type { KeyboardEventHandler } from 'react';
+import BaseButton from '@/shared/ui/BaseButton/BaseButton';
 import styles from './MessageComposer.module.scss';
 
 type Props = {
@@ -43,17 +44,18 @@ function MessageComposer({
         placeholder={placeholder}
         aria-label="Текст сообщения"
       />
-      <button
+      <BaseButton
         className={styles.sendButton}
         onClick={handleSend}
         disabled={disabled || !text.trim()}
         aria-label="Отправить сообщение"
         title="Отправить сообщение"
+        type="button"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3.5 11.2 20.3 3.7c.7-.3 1.4.4 1.1 1.1l-7.5 16.8c-.3.7-1.3.6-1.4-.2l-1.1-6.4-6.4-1.1c-.8-.1-.9-1.1-.2-1.4Zm8.9 2.9 1 5.4 5.2-11.6-11.6 5.2 5.4 1Z" />
         </svg>
-      </button>
+      </BaseButton>
     </div>
   );
 }

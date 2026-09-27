@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BaseButton from '@/shared/ui/BaseButton/BaseButton';
 import ChatHeader from '@/modules/chat/components/ChatHeader/ChatHeader';
 import ChatErrors from '@/modules/chat/components/ChatErrors/ChatErrors';
 import ChatSidebar from '@/modules/chat/components/ChatSidebar/ChatSidebar';
@@ -16,7 +17,7 @@ function Chat() {
 
   return (
     <div className={styles.app}>
-      <button
+      <BaseButton
         aria-hidden={!isSidebarOpen}
         aria-label="Закрыть список чатов"
         className={`${styles.overlay} ${isSidebarOpen ? styles['overlay--visible'] : ''}`}

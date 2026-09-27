@@ -20,15 +20,10 @@
 }
 
 .input {
-  min-width: 0;
   flex: 1;
   height: 42px;
-  box-sizing: border-box;
   padding: 0 10px;
-  border: 1px solid var(--border);
   border-radius: 10px;
-  color: var(--text-h);
-  font: inherit;
   font-size: 13px;
   transition:
     border-color 0.15s,
