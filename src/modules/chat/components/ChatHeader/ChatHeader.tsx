@@ -1,4 +1,7 @@
+import { useRef } from 'react';
 import BaseButton from '@/shared/ui/BaseButton/BaseButton';
+import LogoutConfirm from '@/modules/chat/components/LogoutConfirm/LogoutConfirm';
+import type { LogoutConfirmRef } from '@/modules/chat/components/LogoutConfirm/LogoutConfirm';
 import styles from './ChatHeader.module.scss';
 
 type Props = {
@@ -9,6 +12,8 @@ type Props = {
 };
 
 function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
+  const logoutConfirmRef = useRef<LogoutConfirmRef>(null);
+
   return (
     <div className={styles.header}>
       <BaseButton
@@ -28,9 +33,14 @@ function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.subtitle}>MAX</p>
       </div>
-      <BaseButton className={styles.logout} onClick={onLogout} type="button">
+      <BaseButton
+        className={styles.logout}
+        onClick={() => logoutConfirmRef.current?.open()}
+        type="button"
+      >
         Выйти
       </BaseButton>
+      <LogoutConfirm onConfirm={onLogout} ref={logoutConfirmRef} />
     </div>
   );
 }
