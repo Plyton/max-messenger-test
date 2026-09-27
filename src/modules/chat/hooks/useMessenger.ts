@@ -101,7 +101,7 @@ export function useMessenger({ credentials }: Props) {
         } catch {
           if (controller.signal.aborted) return;
 
-          setReceiveError('Не удалось получить сообщения. Повторяем подключение.');
+          setReceiveError('Нет соединения. Пытаемся восстановить связь…');
           await wait(2000);
         }
       }
