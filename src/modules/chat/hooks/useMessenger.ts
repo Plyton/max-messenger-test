@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { greenApiBaseUrl } from '@/config/env';
+import { greenApiBaseUrl } from '@/shared/config/env';
 import {
   checkAccount as checkGreenApiAccount,
   deleteNotification,
   receiveNotification,
   sendMessage as sendGreenApiMessage,
-} from '@/services/greenApi/greenApi';
+} from '@/shared/api/greenApi/greenApi';
 import type {
   GreenApiConfig,
   GreenApiCredentials,
   ReceiveNotification,
-} from '@/services/greenApi/types';
+} from '@/shared/api/greenApi/types';
 import type { ChatMessage, CurrentChat } from '@/modules/chat/types';
 
 type Props = {

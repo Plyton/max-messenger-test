@@ -5,7 +5,7 @@ import ChatSidebar from '@/modules/chat/components/ChatSidebar/ChatSidebar';
 import EmptyChat from '@/modules/chat/components/EmptyChat/EmptyChat';
 import MessageComposer from '@/modules/chat/components/MessageComposer/MessageComposer';
 import MessageList from '@/modules/chat/components/MessageList/MessageList';
-import { useChatSessionContext } from '@/app/context/useChatSessionContext';
+import { useChatSessionContext } from '@/shared/context/useChatSessionContext';
 import { useMessengerContext } from '@/modules/chat/context/useMessengerContext';
 import styles from './Chat.module.scss';
 

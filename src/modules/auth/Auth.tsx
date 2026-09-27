@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { useContext } from 'react';
-import { GreenContext } from '@/app/context/GreenContext';
+import { GreenContext } from '@/shared/context/GreenContext';
 import CredentialsForm from '@/modules/auth/components/CredentialsForm/CredentialsForm';
 import styles from './Auth.module.scss';
 

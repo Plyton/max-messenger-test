@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GreenContext } from '@/app/context/GreenContext';
+import { GreenContext } from '@/shared/context/GreenContext';
 import { MessengerProvider } from '@/modules/chat/context/MessengerContext';
 import Chat from '@/modules/chat/Chat';
 

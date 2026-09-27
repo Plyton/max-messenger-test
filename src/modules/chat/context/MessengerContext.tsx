@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import type { ReactNode } from 'react';
 import { useMessenger } from '@/modules/chat/hooks/useMessenger';
-import type { GreenApiCredentials } from '@/services/greenApi/types';
+import type { GreenApiCredentials } from '@/shared/api/greenApi/types';
 
 type MessengerContextValue = ReturnType<typeof useMessenger>;
 

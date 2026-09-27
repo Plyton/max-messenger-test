@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import type * as React from 'react';
 import { useContext } from 'react';
-import { greenApiBaseUrl } from '@/config/env';
-import { GreenContext } from '@/app/context/GreenContext';
-import { getStateInstance } from '@/services/greenApi/greenApi';
-import type { GreenApiConfig } from '@/services/greenApi/types';
+import { greenApiBaseUrl } from '@/shared/config/env';
+import { GreenContext } from '@/shared/context/GreenContext';
+import { getStateInstance } from '@/shared/api/greenApi/greenApi';
+import type { GreenApiConfig } from '@/shared/api/greenApi/types';
 import styles from './CredentialsForm.module.scss';
 
 function CredentialsForm() {

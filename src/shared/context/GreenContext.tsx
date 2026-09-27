@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 import type { ReactNode } from 'react';
-import type { GreenApiCredentials } from '@/services/greenApi/types';
+import type { GreenApiCredentials } from '@/shared/api/greenApi/types';
 
 export type GreenContextValue = {
   credentials: GreenApiCredentials | null;

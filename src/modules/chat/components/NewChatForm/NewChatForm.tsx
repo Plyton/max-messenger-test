@@ -94,7 +94,6 @@ function NewChatForm({
 
   function restoreCaret(value: string, digitCount: number) {
     const cursor = getCursorAfterPhoneDigits(value, digitCount);
-
     window.requestAnimationFrame(() => {
       inputRef.current?.setSelectionRange(cursor, cursor);
     });
