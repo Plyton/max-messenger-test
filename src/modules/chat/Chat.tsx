@@ -25,10 +25,7 @@ function Chat() {
         tabIndex={isSidebarOpen ? 0 : -1}
         type="button"
       />
-      <ChatSidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+      <ChatSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       <main className={styles.chatArea}>
         <ChatHeader

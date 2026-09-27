@@ -53,10 +53,7 @@ function ChatSidebar({ isOpen, onClose }: Props) {
         phoneNumber={phoneNumber}
       />
       <p className={styles.sectionLabel}>ЧАТЫ</p>
-      <ConversationList
-        onSelect={onClose}
-        phoneNumber={currentChat?.phoneNumber ?? null}
-      />
+      <ConversationList onSelect={onClose} phoneNumber={currentChat?.phoneNumber ?? null} />
     </aside>
   );
 }

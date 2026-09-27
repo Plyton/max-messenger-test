@@ -11,9 +11,5 @@ type Props = {
 export function MessengerProvider({ credentials, children }: Props) {
   const messenger = useMessenger({ credentials });
 
-  return (
-    <MessengerContext.Provider value={messenger}>
-      {children}
-    </MessengerContext.Provider>
-  );
+  return <MessengerContext.Provider value={messenger}>{children}</MessengerContext.Provider>;
 }

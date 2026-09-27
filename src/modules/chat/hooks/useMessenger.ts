@@ -46,12 +46,12 @@ export function useMessenger({ credentials }: Props) {
 
     const wait = async (milliseconds: number) => {
       await new Promise<void>((resolve) => {
-        const timeoutId = window.setTimeout(() => {
+        const timeoutId = setTimeout(() => {
           controller.signal.removeEventListener('abort', onAbort);
           resolve();
         }, milliseconds);
         const onAbort = () => {
-          window.clearTimeout(timeoutId);
+          clearTimeout(timeoutId);
           resolve();
         };
 
