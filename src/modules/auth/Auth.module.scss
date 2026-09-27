@@ -1,49 +1,105 @@
 .page {
+  --text: #697780;
+  --text-h: #101820;
+  --bg: rgba(242, 250, 255, 0.96);
+  --border: rgba(255, 255, 255, 0.68);
+  --accent: #70b5f4;
+  --accent-secondary: #6bd3ff;
+  --accent-bg: rgba(112, 181, 244, 0.12);
+  --accent-border: rgba(80, 160, 225, 0.35);
+  --shadow:
+    0 20px 50px rgba(45, 115, 165, 0.18),
+    0 4px 12px rgba(45, 115, 165, 0.08);
+  --sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  position: relative;
+  isolation: isolate;
   min-height: 100dvh;
   box-sizing: border-box;
   display: grid;
   place-items: center;
+  overflow: hidden;
   padding: 32px 20px;
-  background: radial-gradient(ellipse at 50% 0, var(--accent-bg), transparent 48%), var(--bg);
+  background: linear-gradient(135deg, #8fd7ff 0%, #a8e3ff 50%, #91d4ff 100%);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='230' height='210' viewBox='0 0 230 210' fill='none' stroke='%232b91c8' stroke-opacity='.24' stroke-width='2'%3E%3Cpath d='m30 29 2.4 6.7L39 38l-6.6 2.3L30 47l-2.4-6.7L21 38l6.6-2.3L30 29Z'/%3E%3Ccircle cx='106' cy='36' r='12'/%3E%3Cellipse cx='106' cy='36' rx='20' ry='7' transform='rotate(-25 106 36)'/%3E%3Cpath d='M177 23a14 14 0 1 0 14 22 12 12 0 0 1-14-22Z'/%3E%3Cpath d='M46 112c0-8 7-14 15-14h12c8 0 15 6 15 14v4c0 8-7 14-15 14h-4l-9 8v-8c-8-1-14-7-14-14v-4Z'/%3E%3Ccircle cx='59' cy='114' r='1' fill='%232b91c8'/%3E%3Ccircle cx='68' cy='114' r='1' fill='%232b91c8'/%3E%3Ccircle cx='77' cy='114' r='1' fill='%232b91c8'/%3E%3Cpath d='m156 104 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z'/%3E%3Ccircle cx='202' cy='151' r='11'/%3E%3Cpath d='M190 151h24M202 139v24'/%3E%3Cpath d='M31 174c8-8 18-8 26 0M36 180c5-5 11-5 16 0'/%3E%3Ccircle cx='44' cy='186' r='1.5' fill='%232b91c8'/%3E%3Cpath d='m120 157 2.4 6.7L129 166l-6.6 2.3L120 175l-2.4-6.7L111 166l6.6-2.3 2.4-6.7Z'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 230px 210px;
+    content: '';
+    pointer-events: none;
+  }
 }
 
 .card {
-  width: min(100%, 440px);
+  width: min(100%, 520px);
   box-sizing: border-box;
-  padding: 40px;
+  padding: 42px;
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 28px;
   background: var(--bg);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  animation: appear 0.32s ease-out both;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
 }
 
 .logo {
   display: grid;
   width: 48px;
   height: 48px;
+  flex: 0 0 auto;
   place-items: center;
-  border-radius: 16px;
-  background: var(--accent);
-  color: white;
-  font-size: 22px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #438df4 8%, #815fe7 54%, #54c9ed 100%);
+  box-shadow: 0 5px 12px rgba(78, 139, 222, 0.2);
+
+  svg {
+    width: 29px;
+    height: 29px;
+  }
+}
+
+.wordmark {
+  color: #111c27;
+  font-size: 30px;
   font-weight: 750;
+  letter-spacing: -0.055em;
+  line-height: 1;
 }
 
 .eyebrow {
-  margin: 25px 0 8px;
-  color: var(--text);
+  margin: 30px 0 9px;
+  color: #748695;
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-align: center;
 }
 
 .title {
   margin: 0;
   color: var(--text-h);
   font-family: var(--sans);
-  font-size: clamp(25px, 6vw, 31px);
+  font-size: clamp(26px, 6vw, 31px);
+  font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.2;
+  text-align: center;
 }
 
 .description {
@@ -51,15 +107,38 @@
   color: var(--text);
   font-size: 15px;
   line-height: 1.6;
+  text-align: center;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 520px) {
   .page {
-    padding: 18px;
+    padding: 16px;
   }
 
   .card {
     padding: 28px 22px;
-    border-radius: 20px;
+    border-radius: 22px;
+  }
+
+  .wordmark {
+    font-size: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
   }
 }
