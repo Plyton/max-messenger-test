@@ -19,15 +19,19 @@ function Auth() {
   }
 
   return (
-    <main className={styles.page}>
+    <main className={`position-relative overflow-hidden ${styles.page}`}>
       <section className={styles.card}>
-        <div className={styles.brand} role="img" aria-label="MAX">
+        <div
+          className={`d-flex items-center justify-center ${styles.brand}`}
+          role="img"
+          aria-label="MAX"
+        >
           <span className={styles.logo} aria-hidden="true">
             <IconMaxLogo />
           </span>
           <span className={styles.wordmark}>MAX</span>
         </div>
-        <p className={styles.description}>
+        <p className={`text-center ${styles.description}`}>
           Введите данные подключения GREEN-API, чтобы продолжить общение в MAX.
         </p>
         <CredentialsForm />

@@ -1,7 +1,6 @@
-@use '@/shared/styles' as styles;
+@use '@/shared/styles/mixins' as styles;
 
 .form {
-  @include styles.flex-column;
   gap: 9px;
   padding: 15px 12px;
   border: 1px solid rgba(130, 184, 218, 0.16);
@@ -16,14 +15,12 @@
 }
 
 .phoneRow {
-  display: flex;
   gap: 7px;
 }
 
 .input {
   box-sizing: border-box;
   min-width: 0;
-  flex: 1;
   height: 42px;
   padding: 0 10px;
   border: 1px solid transparent;
@@ -76,7 +73,6 @@
 }
 
 .error {
-  margin: 0;
   padding: 9px 10px;
   border: 1px solid var(--danger-border);
   border-radius: var(--radius-small);

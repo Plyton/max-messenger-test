@@ -26,11 +26,11 @@ function ChatSidebar({ isOpen, onClose }: Props) {
 
   return (
     <aside
-      className={`${styles.sidebar} ${isOpen ? styles['sidebar--open'] : ''}`}
+      className={`d-flex flex-column overflow-y-auto gap-9 ${styles.sidebar} ${isOpen ? styles['sidebar--open'] : ''}`}
       id="chat-sidebar"
     >
-      <div className={styles.sidebarHeading}>
-        <div className={styles.brandGroup}>
+      <div className={`d-flex items-center justify-between ${styles.sidebarHeading}`}>
+        <div className={`d-inline items-center ${styles.brandGroup}`}>
           <span className={styles.brandIcon} aria-hidden="true">
             <IconMaxLogo />
           </span>

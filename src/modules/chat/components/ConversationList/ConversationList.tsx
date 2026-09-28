@@ -12,15 +12,15 @@ function ConversationList({ phoneNumber, onSelect }: Props) {
   }
 
   return (
-    <div className={styles.list}>
+    <div className="d-flex flex-column gap-4 overflow-auto">
       <BaseButton
-        className={`${styles.item} ${styles['item--active']}`}
+        className={`d-flex items-center gap-6 w-full ${styles.item} ${styles['item--active']}`}
         onClick={onSelect}
         type="button"
       >
-        <div className={styles.avatar}>M</div>
-        <div className={styles.meta}>
-          <div className={styles.title}>{phoneNumber}</div>
+        <div className={`d-inline items-center justify-center ${styles.avatar}`}>M</div>
+        <div className={`d-flex flex-column items-start ${styles.meta}`}>
+          <div className={`text-ellipsis ${styles.title}`}>{phoneNumber}</div>
         </div>
       </BaseButton>
     </div>

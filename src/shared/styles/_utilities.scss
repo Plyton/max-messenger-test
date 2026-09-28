@@ -1,0 +1,233 @@
+@use './mixins' as styles;
+
+@for $i from 1 through 10 {
+  .w-#{$i} {
+    width: 10% * $i;
+  }
+
+  .h-#{$i} {
+    height: 10% * $i;
+  }
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+@for $i from 1 through 20 {
+  .gap-#{$i} {
+    gap: $i * 2px;
+  }
+
+  .mt-#{$i} {
+    margin-top: $i * 2px;
+  }
+
+  .mr-#{$i} {
+    margin-right: $i * 2px;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: $i * 2px;
+  }
+
+  .ml-#{$i} {
+    margin-left: $i * 2px;
+  }
+
+  .ma-#{$i} {
+    margin: $i * 2px;
+  }
+
+  .pt-#{$i} {
+    padding-top: $i * 2px;
+  }
+
+  .pr-#{$i} {
+    padding-right: $i * 2px;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: $i * 2px;
+  }
+
+  .pl-#{$i} {
+    padding-left: $i * 2px;
+  }
+
+  .pa-#{$i} {
+    padding: $i * 2px;
+  }
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-inline {
+  display: inline-flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-0 {
+  flex: 0;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: start;
+}
+
+.items-end {
+  align-items: end;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-start {
+  align-self: start;
+}
+
+.self-end {
+  align-self: end;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.rotate-quarter-past {
+  transform: rotate(90deg);
+}
+
+.rotate-half {
+  transform: rotate(180deg);
+}
+
+.rotate-quarter-to {
+  transform: rotate(270deg);
+}
+
+.scale-grow {
+  transform: scale(1.03);
+}
+
+.scale-shrink {
+  transform: scale(0.97);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.icon-xs {
+  @include styles.icon(12px);
+}
+
+.icon-sm {
+  @include styles.icon(16px);
+}
+
+.icon-md {
+  @include styles.icon(20px);
+}
+
+.icon-lg {
+  @include styles.icon(24px);
+}
+
+.icon-xl {
+  @include styles.icon(32px);
+}

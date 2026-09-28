@@ -1,4 +1,4 @@
-@use '@/shared/styles' as styles;
+@use '@/shared/styles/mixins' as styles;
 
 .header {
   min-height: 68px;
@@ -7,9 +7,6 @@
   padding: 10px 14px;
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-surface);
-  display: flex;
-  align-items: center;
-  gap: 12px;
   background: rgba(242, 250, 255, 0.9);
   box-shadow: 0 4px 16px rgba(45, 115, 165, 0.07);
   backdrop-filter: blur(12px);
@@ -25,20 +22,16 @@
   flex: 0 0 42px;
   border-radius: 50%;
   background: var(--brand-gradient);
-  @include styles.flex-center(inline-flex);
   color: var(--text-inverse);
   font-weight: 700;
 }
 
 .title {
   max-width: min(55vw, 480px);
-  overflow: hidden;
-  font-weight: 700;
-  font-size: 16px;
   margin: 0;
   color: var(--text-h);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .subtitle {

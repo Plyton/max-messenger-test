@@ -1,9 +1,6 @@
-@use '@/shared/styles' as styles;
+@use '@/shared/styles/mixins' as styles;
 
 .composer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   margin: 10px 16px calc(16px + env(safe-area-inset-bottom));
   padding: 8px;
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -55,7 +52,6 @@
   background: var(--accent);
   color: var(--text-inverse);
   cursor: pointer;
-  @include styles.flex-center(inline-flex);
   flex: 0 0 44px;
   @include styles.button-transition;
 

@@ -67,12 +67,12 @@ function CredentialsForm() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <label className={styles.field}>
+    <form className={`d-flex flex-column mt-18 ${styles.form}`} onSubmit={handleSubmit}>
+      <label className="d-flex flex-column gap-4">
         <span className={styles.label}>ID подключения</span>
         <BaseInput
           autoComplete="off"
-          className={styles.input}
+          className={`w-full ${styles.input}`}
           inputMode="numeric"
           name="idInstance"
           onChange={handleIdInstanceChange}
@@ -82,11 +82,11 @@ function CredentialsForm() {
         />
       </label>
 
-      <label className={styles.field}>
+      <label className="d-flex flex-column gap-4">
         <span className={styles.label}>Токен подключения</span>
         <BaseInput
           autoComplete="off"
-          className={styles.input}
+          className={`w-full ${styles.input}`}
           name="apiTokenInstance"
           onChange={handleApiTokenInstanceChange}
           placeholder="Введите токен"
@@ -102,7 +102,7 @@ function CredentialsForm() {
         </p>
       )}
 
-      <BaseButton className={styles.submit} disabled={isLoading} type="submit">
+      <BaseButton className={`w-full ${styles.submit}`} disabled={isLoading} type="submit">
         {isLoading ? 'Подключаем…' : 'Подключиться'}
       </BaseButton>
     </form>

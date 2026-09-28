@@ -1,4 +1,4 @@
-@use '@/shared/styles' as styles;
+@use '@/shared/styles/mixins' as styles;
 
 .sidebar {
   width: 320px;
@@ -6,27 +6,19 @@
   max-width: 36%;
   min-height: 0;
   box-sizing: border-box;
-  @include styles.flex-column;
-  gap: 18px;
   padding: 20px 14px;
   border: 1px solid var(--border);
   border-radius: 24px;
   background: rgba(242, 250, 255, 0.94);
   box-shadow: 8px 0 30px var(--shadow-color-soft);
-  overflow-y: auto;
   backdrop-filter: blur(12px);
 }
 
 .sidebarHeading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0 6px;
 }
 
 .brandGroup {
-  display: inline-flex;
-  align-items: center;
   gap: 9px;
 }
 

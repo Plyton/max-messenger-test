@@ -48,7 +48,7 @@ const BaseModal = forwardRef<BaseModalRef, Props>(function BaseModal(
   return (
     <dialog
       aria-labelledby={ariaLabelledBy}
-      className={styles.modal}
+      className={`overflow-auto pa-12 ${styles.modal}`}
       onClick={handleBackdropClick}
       ref={dialogRef}
     >

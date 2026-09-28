@@ -34,7 +34,7 @@ function MessageComposer({
   };
 
   return (
-    <div className={styles.composer}>
+    <div className={`d-flex items-center gap-4 ${styles.composer}`}>
       <textarea
         className={styles.input}
         disabled={disabled}
@@ -45,7 +45,7 @@ function MessageComposer({
         aria-label="Текст сообщения"
       />
       <BaseButton
-        className={styles.sendButton}
+        className={`d-inline items-center justify-center ${styles.sendButton}`}
         onClick={handleSend}
         disabled={disabled || !text.trim()}
         aria-label="Отправить сообщение"

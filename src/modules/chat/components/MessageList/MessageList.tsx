@@ -18,7 +18,7 @@ function MessageList({ messages }: Props) {
   }, [messages]);
 
   return (
-    <div className={styles.messageList} ref={ref}>
+    <div className={`d-flex flex-column overflow-auto pa-12 ${styles.messageList}`} ref={ref}>
       {messages.map((m) => (
         <MessageBubble key={m.id} msg={m} />
       ))}

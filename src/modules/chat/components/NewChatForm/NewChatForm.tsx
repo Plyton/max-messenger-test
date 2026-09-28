@@ -35,14 +35,14 @@ function NewChatForm({
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={`d-flex flex-column ${styles.form}`} onSubmit={handleSubmit}>
       <label className={styles.label} htmlFor="phone-number">
         Новый чат
       </label>
-      <div className={styles.phoneRow}>
+      <div className={`d-flex ${styles.phoneRow}`}>
         <IMaskInput
           autoComplete="tel"
-          className={styles.input}
+          className={`flex-1 ${styles.input}`}
           id="phone-number"
           inputRef={inputRef}
           mask="+7 (000) 000-00-00"

@@ -1,16 +1,6 @@
-@use '@/shared/styles' as styles;
-
-.list {
-  @include styles.flex-column;
-  gap: 8px;
-  overflow: auto;
-}
+@use '@/shared/styles/mixins' as styles;
 
 .item {
-  width: 100%;
-  display: flex;
-  gap: 12px;
-  align-items: center;
   padding: 10px 12px;
   border: 0;
   border-radius: var(--radius-item);
@@ -38,24 +28,18 @@
   flex: 0 0 44px;
   border-radius: 50%;
   background: var(--brand-gradient);
-  @include styles.flex-center(inline-flex);
   color: var(--text-inverse);
   font-weight: 700;
 }
 
 .meta {
-  @include styles.flex-column;
   min-width: 0;
-  align-items: flex-start;
 }
 
 .title {
   max-width: 100%;
-  overflow: hidden;
   color: var(--text-h);
   font-weight: 600;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .empty {

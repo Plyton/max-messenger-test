@@ -15,7 +15,7 @@ function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
   const logoutConfirmRef = useRef<LogoutConfirmRef>(null);
 
   return (
-    <div className={styles.header}>
+    <div className={`d-flex items-center gap-6 ${styles.header}`}>
       <BaseButton
         aria-controls="chat-sidebar"
         aria-expanded={sidebarIsOpen}
@@ -26,9 +26,9 @@ function ChatHeader({ title, onLogout, onOpenSidebar, sidebarIsOpen }: Props) {
       >
         <IconArrowLeft />
       </BaseButton>
-      <div className={styles.avatar}>M</div>
+      <div className={`d-inline items-center justify-center ${styles.avatar}`}>M</div>
       <div>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={`text-ellipsis ${styles.title}`}>{title}</h2>
         <p className={styles.subtitle}>MAX</p>
       </div>
       <BaseButton

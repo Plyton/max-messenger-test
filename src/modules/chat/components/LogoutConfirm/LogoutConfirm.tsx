@@ -38,12 +38,12 @@ const LogoutConfirm = forwardRef<LogoutConfirmRef, Props>(function LogoutConfirm
 
   return (
     <BaseModal aria-labelledby="logout-confirm-title" ref={modalRef}>
-      <div className={styles.content}>
+      <div className={`d-flex flex-column gap-6 ${styles.content}`}>
         <h2 className={styles.title} id="logout-confirm-title">
           Выйти из аккаунта?
         </h2>
         <p className={styles.description}>После выхода потребуется повторно подключиться к MAX.</p>
-        <div className={styles.actions}>
+        <div className="d-flex justify-end gap-5 mt-4">
           <BaseButton className={styles.cancel} onClick={handleCancel} type="button">
             Отмена
           </BaseButton>

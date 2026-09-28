@@ -1,15 +1,10 @@
-@use '@/shared/styles' as styles;
+@use '@/shared/styles/mixins' as styles;
 
 .row {
-  display: flex;
   min-width: 0;
 
   &--incoming {
     justify-content: flex-start;
-  }
-
-  &--outgoing {
-    justify-content: flex-end;
   }
 }
 
@@ -38,11 +33,9 @@
 }
 
 .meta {
-  margin-top: 4px;
   color: #7b8790;
   font-size: 11px;
   line-height: 1.2;
-  text-align: right;
 }
 
 .bubble--outgoing .meta {
